@@ -252,9 +252,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponNames:
-  - TEST NAME
-  - GUN 2
-  - GUN 3
+  - GOOD GUN
+  - BETTER GUN
+  - BEST GUN
   weaponDescriptions:
   - Some super cool text that describes this super cool weapon. Basically, its really
     super cool...
