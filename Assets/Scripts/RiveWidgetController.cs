@@ -3,8 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Rive;
 using Rive.Components;
-using System.Reflection;
-using Unity.VisualScripting;
+using DG.Tweening;
 
 
 public class RiveWidgetController : MonoBehaviour
@@ -195,3 +194,156 @@ public class RiveWidgetController : MonoBehaviour
 
 
 }
+
+/*
+// v1
+
+const names = ["Good Gun", "Better Gun", "Best Gun"]
+const powers = [1, 2, 3]
+const sizes = ["small", "medium", "large"]
+
+const weapon1Index = 0
+const weapon1Name = names[weapon1Index]
+const weapon1Power = powers[weapon1Index]
+
+// ------------------------------------------------
+// v2
+
+const gunInfo = [
+    ["Good Gun", 1, "small"],
+    ["Better Gun", 2, "medium"],
+    ["Best Gun", 3, "large"]
+]
+
+const weapon1Index = 0
+gunInfo[weapon1Index][0]
+gunInfo[weapon1Index][1]
+
+//gun size of weapon 1
+gunInfo[weapon1Index][2]
+
+//v3
+
+Dictionary<string, string> weapon1Info =
+    new Dictionary<string, string>();
+
+weapon1Info.Add("name", "Good Gun")
+weapon1Info.Add("power", "100")
+weapon1Info.Add("size", "small")
+
+const gunInfo = [weapon1Info, weapon2Info, weapon3Info]
+
+const weapon1Index = 0
+gunInfo[weapon1Index]["name"]
+
+// -----------v4
+
+Dictionary<string, string> weapon1Info =
+    new Dictionary<string, string>();
+
+weapon1Info.Add("name", "Good Gun")
+weapon1Info.Add("power", "100")
+weapon1Info.Add("size", "small")
+
+Dictionary<string, string> weapon2Info =
+    new Dictionary<string, string>();
+
+weapon2Info.Add("name", "Better Gun")
+weapon2Info.Add("power", "200")
+weapon2Info.Add("size", "medium")
+
+Dictionary<string, string> weapon3Info =
+    new Dictionary<string, string>();
+
+weapon3Info.Add("name", "Best Gun")
+weapon3Info.Add("power", "300")
+weapon3Info.Add("size", "large")
+
+
+
+Dictionary<string, Dictionary<string, string>> gunInfo = 
+    new Dictionary<string, Dictionary<string, string>>()
+
+gunInfo.Add("weapon1Info", weapon1Info)
+
+gunInfo["weapon1Info"]["name"]
+
+// ----------------------v5
+
+public class Weapon {
+    private string name;
+    private string power;
+    private string size;
+
+    private int price;
+
+    public Weapon(string weaponName, string weaponPower, string weaponSize, int weaponPrice) {
+        name = weaponName;
+        power = weaponPower;
+        size = weaponSize;
+        price = weaponPrice;
+    }
+
+    public void setWeaponName(string weaponName) {
+        name = weaponName;
+    }
+
+    public void setWeaponSize(string weaponSize) {
+        size = weaponSize;
+    }
+
+    public void setWeaponPrice(int weaponPrice)
+    {
+        price = weaponPrice;
+        return;
+    }
+
+    public string getWeaponName() {
+        return name;
+    }
+
+    public int getWeaponPrice()
+    {
+        return price;
+    }
+
+    public void shoot() {
+        if (size == "small") {
+            Debug.Log("pew");
+        }
+
+        if (size == "medium") {
+            Debug.Log("bang");
+        }
+
+        if (size == "large") {
+            Debug.Log("Boom");
+        }
+    }
+}
+
+Weapon weapon1 = new Weapon("good gun", "100", "small");
+
+// {
+//     name: "good gun",
+//     power: "100",
+//     size: "small"
+// }
+
+weapon1.shoot();
+
+Weapon weapon2 = new Weapon("better gun", "200", "medium");
+
+weapon2.shoot();
+
+weapon1.setWeaponSize("large");
+
+weapon1.shoot();
+
+Dictionary<string, Weapon> gunInfo = 
+    new Dictionary<string, Weapon>()
+
+gunInfo.Add("weapon1Info", weapon1);
+
+gunInfo["weapon1Info"].getWeaponName()
+*/
